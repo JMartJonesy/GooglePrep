@@ -17,19 +17,6 @@ def BFSIter(start, end):
 				queue.append(neighbor)
 	return visited
 
-def BFSRec(queue, visited, start, end):
-	queue.append(start)
-	top = queue.popleft()
-
-	if top.data == end.data:
-		visited.append(top)
-		return top
-	elif top not in visited:
-		visited.append(top)
-		for neighbor in top.neighbors:
-			return BFSRec(queue, visited, neighbor, end)
-	return None
-
 if __name__ == "__main__":
 	node8 = Node(8)
 	node7 = Node(7) 
@@ -41,4 +28,3 @@ if __name__ == "__main__":
 	node1 = Node(1, [node2, node3])
 	for path in BFSIter(node1, node7):
 		print(path.data)
-	
